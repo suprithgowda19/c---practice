@@ -1,0 +1,18 @@
+{
+  "label": "Run demo with input",
+  "type": "shell",
+  "command": "cmd.exe",
+  "args": [
+    "/d",
+    "/c",
+    "g++ -std=c++17 -o demo.exe demo.cpp && .\\demo.exe < input.txt > output.txt"
+  ],
+  "options": {
+    "cwd": "${workspaceFolder}"
+  },
+  "problemMatcher": ["$gcc"],
+  "group": {
+    "kind": "build",
+    "isDefault": true
+  }
+}
