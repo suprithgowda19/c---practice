@@ -1,74 +1,55 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void union_of_sorted_array(vector<int> &arr1, vector<int> &arr2)
+void shift_all_zeros_right(vector<int>&arr)
 {
-  int i = 0;
-  int j = 0;
-  int n1 = arr1.size();
-  int n2 = arr2.size();
-  vector<int> unionArr;
-  while (i < n1 && j < n2)
+  int n=arr.size();
+   int i=0;
+   int j=-1;
+  for( i=0;i<n;i++)
   {
-    if (arr1[i] <= arr2[j])
+    if(arr[i]==0)
     {
-      if (unionArr.size() == 0 || arr1[i] != unionArr.back())
-      {
-        unionArr.push_back(arr1[i]);
-      }
-      i++;
-    
+      j=i;
+      break;
     }
-    else
+    
+  }
+  if(i==-1)
+  {
+    return ;
+  }
+  i=j+1;
+  
+  while(i<n)
+  {  
+    
+    if(arr[i] != 0)
     {
-      if (unionArr.size() == 0 || arr2[j] != unionArr.back())
-      {
-        unionArr.push_back(arr2[j]);
-      }
-
+      swap(arr[i],arr[j]);
       j++;
     }
-  }
-
-  while (i < n1)
-  {
-    if (unionArr.size() == 0 || arr1[i] != unionArr.back())
-    {
-      unionArr.push_back(arr1[i]);
+    else{
+      i++;
     }
-    i++;
-  }
-
-  while (j < n2)
-  {
-    if  ( unionArr.size() == 0 || arr2[j] != unionArr.back())
-    {
-      unionArr.push_back(arr2[j]);
-    }
-    j++;
-  }
-
-  for (i = 0; i < unionArr.size(); i++)
-  {
-    cout << unionArr[i];
-  }
+ }
+ for(i=0;i<n;i++){
+  cout<<arr[i];
+ }
+     
 }
 
-int main()
-{
-  int n1 = 5, n2 = 7;
-  vector<int> arr1(n1);
-  vector<int> arr2(n2);
-  for (int i = 0; i < n1; i++)
-  {
-    cin >> arr1[i];
-  }
-  for (int i = 0; i < n2; i++)
-  {
-    cin >> arr2[i];
-  }
 
-  union_of_sorted_array(arr1, arr2);
+int main()
+{   
+  int n=5;
+    vector<int>arr(n);
+  for(int i = 0; i < n; i++)
+  {
+    cin >> arr[i];
+  }
+    shift_all_zeros_right(arr);
+
 
   return 0;
 }
