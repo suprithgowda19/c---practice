@@ -1,54 +1,46 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void intersection(vector<int>&a,vector<int>&b)
-{
-    int i=0,j=0;
-    int n1=a.size();
-    int n2=b.size();
-    vector<int>intersection;
 
    
-      while(i<n1 && j<n2)
-      {
-           if(a[i]==b[j])
-           {
-              intersection.push_back(a[i]);
-              i++;
-              j++;
-           }
-           else if(a[i]<b[j])
-           {
-             i++;
-           }
 
-           else
-           j++;
-      }
-      for(i=0;i<intersection.size();i++)
+     void missingElement(vector<int>&arr)
+     {
+      
+        arr[0]=1;
+      for(int i=0;i<arr.size();i++)
       {
-        cout<<intersection[i];
+              if(arr[i+1]==arr[i]+1)
+              {
+                  continue;
+              }
+              else
+              cout<<"missing number is "<<arr[i]+1;
+              break;
       }
-   
 
-     
-}
+     }
 
 
 int main()
 {   
-  int n1=5,n2=6;
-    vector<int>a(n1);
-    vector<int>b(n2);
-  for(int i = 0; i < n1; i++)
+  int n=5,n2=6;
+    vector<int>arr(n);
+    // vector<int>b(n2);
+
+    
+  for(int i = 0; i < n; i++)
   {
-    cin >> a[i];
-  }
-  for(int i=0;i<n2;i++)
-  {
-    cin>>b[i];
-  }
-  intersection(a,b);
+    cin >> arr[i];
+  } 
+  missingElement(arr);
+
+
+  // for(int i=0;i<n2;i++)
+  // {
+  //   cin>>b[i];
+  // }
+  // intersection(a,b);
   
 
 
